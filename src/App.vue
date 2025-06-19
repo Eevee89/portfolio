@@ -4,26 +4,55 @@
       <ion-menu content-id="main-content" type="overlay">
         <ion-content>
           <ion-list id="inbox-list">
-            <ion-list-header>Inbox</ion-list-header>
-            <ion-note>hi@ionicframework.com</ion-note>
+            <ion-list-header>
+              <ion-row class="ion-align-items-center">
+                <ion-avatar>
+                  <img alt="My face" src="$/myface.jpg" />
+                </ion-avatar>
+                <ion-col class="ion-no-padding ion-padding-start">
+                  <h3>Joris Martin</h3>
+                  <h4 class="ion-no-padding">Contact : <a href="mailto:admin@jorismartin.fr" target="_blank">admin@jorismartin.fr</a></h4>
+                </ion-col>
+              </ion-row>
+            </ion-list-header>
+            <ion-note></ion-note>
 
-            <ion-menu-toggle :auto-hide="false" v-for="(p, i) in appPages" :key="i">
-              <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
-                <ion-icon aria-hidden="true" slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
-                <ion-label>{{ p.title }}</ion-label>
-              </ion-item>
+            <ion-menu-toggle :auto-hide="false">
+              <ion-item-group>
+                <ion-item>
+                  <ion-icon aria-hidden="true" slot="start" :icon="folderOpenOutline"></ion-icon>
+                  <ion-label>Mon travail</ion-label>
+                </ion-item>
+
+                <ion-item @click="selectedIndex = 2" router-direction="forward" router-link="/hangedpokemon" lines="none" :detail="false" class="hydrated ion-padding-start" :class="{ selected: selectedIndex === 2 }">
+                  <ion-icon aria-hidden="true" slot="start" :icon="logoFirefox"></ion-icon>
+                  <ion-label>Pendu Pokémon</ion-label>
+                </ion-item>
+                <ion-item @click="selectedIndex = 3" router-direction="forward" router-link="/blindtest" lines="none" :detail="false" class="hydrated ion-padding-start" :class="{ selected: selectedIndex === 3 }">
+                  <ion-icon aria-hidden="true" slot="start" :icon="logoFirefox"></ion-icon>
+                  <ion-label>Blind Test</ion-label>
+                </ion-item>
+                <ion-item @click="selectedIndex = 4" router-direction="forward" router-link="/cardcounter" lines="none" :detail="false" class="hydrated ion-padding-start" :class="{ selected: selectedIndex === 4 }">
+                  <ion-icon aria-hidden="true" slot="start" :icon="logoFirefox"></ion-icon>
+                  <ion-label>Card Counter</ion-label>
+                </ion-item>
+              </ion-item-group>
             </ion-menu-toggle>
           </ion-list>
-
-          <ion-list id="labels-list">
-            <ion-list-header>Labels</ion-list-header>
-
-            <ion-item v-for="(label, index) in labels" lines="none" :key="index">
-              <ion-icon aria-hidden="true" slot="start" :ios="bookmarkOutline" :md="bookmarkSharp"></ion-icon>
-              <ion-label>{{ label }}</ion-label>
-            </ion-item>
-          </ion-list>
         </ion-content>
+        <ion-footer>
+          <ion-row class="ion-padding ion-justify-content-around">
+            <a href="https://discord.gg/h5HEjnyxjN" target="_blank">
+              <ion-icon :icon="logoDiscord" size="large" aria-hidden="true"></ion-icon>
+            </a>
+            <a href="https://www.linkedin.com/in/joris-martin-1b3748268/" target="_blank">
+              <ion-icon :icon="logoLinkedin" size="large" color="primary"></ion-icon>
+            </a>
+            <a href="https://github.com/Eevee89" target="_blank">
+              <ion-icon :icon="logoGithub" size="large" color="primary"></ion-icon>
+            </a>
+          </ion-row>
+        </ion-footer>
       </ion-menu>
       <ion-router-outlet id="main-content"></ion-router-outlet>
     </ion-split-pane>
@@ -44,13 +73,16 @@ import {
   IonNote,
   IonRouterOutlet,
   IonSplitPane,
+  IonItemGroup,
+  IonAvatar,
+  IonCol,
+  IonRow,
+  IonFooter
 } from '@ionic/vue';
 import { ref } from 'vue';
 import {
   archiveOutline,
   archiveSharp,
-  bookmarkOutline,
-  bookmarkSharp,
   heartOutline,
   heartSharp,
   mailOutline,
@@ -61,6 +93,14 @@ import {
   trashSharp,
   warningOutline,
   warningSharp,
+  personCircleOutline,
+  folderOpenOutline,
+  podiumOutline,
+  logoFirefox,
+  logoAndroid,
+  logoLinkedin,
+  logoGithub,
+  logoDiscord
 } from 'ionicons/icons';
 
 const selectedIndex = ref(0);
@@ -102,7 +142,6 @@ const appPages = [
     mdIcon: warningSharp,
   },
 ];
-const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
 const path = window.location.pathname.split('folder/')[1];
 if (path !== undefined) {
@@ -229,5 +268,9 @@ ion-note {
 
 ion-item.selected {
   --color: var(--ion-color-primary);
+}
+
+ion-item-divider {
+  border-radius: 10px;
 }
 </style>

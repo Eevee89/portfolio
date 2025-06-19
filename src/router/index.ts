@@ -4,11 +4,23 @@ import { RouteRecordRaw } from 'vue-router';
 const routes: Array<RouteRecordRaw> = [
   {
     path: '',
-    redirect: '/folder/Inbox'
+    redirect: '/home'
   },
   {
-    path: '/folder/:id',
-    component: () => import ('../views/FolderPage.vue')
+    path: '/home',
+    component: () => import ('../views/HomePage.vue')
+  },
+  {
+    path: '/hangedpokemon',
+    component: () => import ('../views/MyWebsites/HangedPokemon.vue')
+  },
+  {
+    path: '/blindtest',
+    component: () => import ('../views/MyWebsites/BlindTest.vue')
+  },
+  {
+    path: '/cardcounter',
+    component: () => import ('../views/MyWebsites/CardCounter.vue')
   }
 ]
 
