@@ -7,7 +7,7 @@
             <ion-list-header>
               <ion-row class="ion-align-items-center">
                 <ion-avatar>
-                  <img alt="My face" src="$/myface.jpg" />
+                  <img alt="My face" src="@/resources/myface.jpg" />
                 </ion-avatar>
                 <ion-col class="ion-no-padding ion-padding-start">
                   <h3>Joris Martin</h3>
@@ -79,25 +79,25 @@ import MenuComponent from './components/MenuComponent.vue';
 
 const menus = ref([
   {
-    "link": "/",
+    "link": "/career",
     "icon" : newspaperOutline,
     "label": "Mon parcours ...",
     "submenus": [
       {
         "index": 11,
         "label": "... scolaire",
-        "link": "/",
+        "link": "/school",
         "icon": schoolOutline
       },
       {
         "index": 12,
         "label": "... professionnel",
-        "link": "/",
+        "link": "",
         "icon": briefcase
       },
     ]
   }, {
-    "link": "/",
+    "link": "/project",
     "icon" : folderOpenOutline,
     "label": "Mon travail",
     "submenus": [

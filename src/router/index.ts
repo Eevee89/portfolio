@@ -7,20 +7,32 @@ const routes: Array<RouteRecordRaw> = [
     redirect: '/home'
   },
   {
+    path: '/project/',
+    redirect: '/home'
+  },
+  {
+    path: '/career/',
+    redirect: '/home'
+  },
+  {
     path: '/home',
     component: () => import ('../views/HomePage.vue')
   },
   {
-    path: '/hangedpokemon',
+    path: '/project/hangedpokemon',
     component: () => import ('../views/MyWebsites/HangedPokemon.vue')
   },
   {
-    path: '/blindtest',
+    path: '/project/blindtest',
     component: () => import ('../views/MyWebsites/BlindTest.vue')
   },
   {
-    path: '/cardcounter',
+    path: '/project/cardcounter',
     component: () => import ('../views/MyWebsites/CardCounter.vue')
+  },
+  {
+    path: '/career/school',
+    component: () => import ('../views/MyCareers/SchoolCareer.vue')
   }
 ]
 

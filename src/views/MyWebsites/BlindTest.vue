@@ -2,7 +2,7 @@
     <ion-page>
         <ion-content>
             <ion-row class="ion-justify-content-center ion-margin-top">
-                <img alt="Blind Test" src="$/blindtest.png" />
+                <img alt="Blind Test" src="@/resources/blindtest.png" />
             </ion-row>
             <ion-row class="ion-justify-content-center">
                 <a href="https://blindtest.jorismartin.fr" target="_blank">

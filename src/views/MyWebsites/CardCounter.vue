@@ -2,7 +2,7 @@
     <ion-page>
         <ion-content>
             <ion-row class="ion-justify-content-center ion-margin-top">
-                <img alt="CardCounter" src="$/cardcounter.png" />
+                <img alt="CardCounter" src="@/resources/cardcounter.png" />
             </ion-row>
             <ion-row class="ion-justify-content-center">
                 <a href="https://cardcounter.jorismartin.fr" target="_blank">

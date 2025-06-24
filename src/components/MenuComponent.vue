@@ -1,5 +1,5 @@
 <template>
-    <ion-item @click="menuClick(); $emit('menuClick', props.index)" router-direction="forward" :router-link="menuLink">
+    <ion-item @click="menuClick(); $emit('menuClick', props.index)" router-direction="forward" :router-link="props.menu!['link']+menuLink" lines="none">
         <ion-icon aria-hidden="true" slot="start" :icon="props.menu!['icon']"></ion-icon>
         <ion-label>{{ props.menu!['label'] }}</ion-label>
         <ion-icon v-if="hasSubMenu" ref="iconRef" aria-hidden="true" slot="end" :icon="chevronForwardOutline"></ion-icon>
@@ -7,7 +7,7 @@
     <ion-item-group v-if="selectedMenu">
         <ion-item v-for="submenu in props.submenus!"
             @click="submenuClick(submenu['index'], submenu['link'])" 
-            router-direction="forward" :router-link="submenu['link']" 
+        router-direction="forward" :router-link="props.menu!['link']+submenu['link']" 
             lines="none" :detail="false" class="hydrated ion-margin-start" 
             :class="{ selected: selectedIndex == submenu['index'] }">
             <ion-icon aria-hidden="true" slot="start" :icon="submenu['icon']"></ion-icon>
@@ -33,7 +33,6 @@ import {
     watch
 } from 'vue';
 import {
-    logoFirefox,
     chevronForwardOutline,
 } from 'ionicons/icons';
 
@@ -45,7 +44,7 @@ const props = defineProps({
 })
 
 const selectedIndex = ref(0);
-const menuLink = ref(props.menu!['link']);
+const menuLink = ref("/");
 const selectedMenu = ref(props.selected);
 const iconRef = ref();
 let animation: Animation;

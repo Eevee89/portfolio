@@ -2,7 +2,7 @@
     <ion-page>
         <ion-content>
             <ion-row class="ion-justify-content-center ion-margin-top">
-                <img alt="Pendu Pokemon" src="$/pokemonhanged.png" />
+                <img alt="Pendu Pokemon" src="@/resources/pokemonhanged.png" />
             </ion-row>
             <ion-row class="ion-justify-content-center">
                 <a href="https://pokemonhanged.jorismartin.fr" target="_blank">
