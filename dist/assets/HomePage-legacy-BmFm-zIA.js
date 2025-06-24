@@ -1,1 +1,0 @@
-System.register(["./index-legacy-pILmfLVv.js"],(function(e,t){"use strict";var u,l,n,a,s,r,c,d,i;return{setters:[e=>{u=e.d,l=e.c,n=e.w,a=e.u,s=e.I,r=e.o,c=e.a,d=e.b,i=e.e}],execute:function(){e("default",u({__name:"HomePage",setup:e=>(e,t)=>(r(),l(a(s),null,{default:n((()=>[c(a(d),null,{default:n((()=>t[0]||(t[0]=[i("p",null,"Not implemented",-1)]))),_:1})])),_:1}))}))}}}));

@@ -1,0 +1,1 @@
+import{d as n,c as o,w as a,u as t,I as s,o as l,a as r,b as u,e as p}from"./index-CsqilEcm.js";const f=n({__name:"HomePage",setup(c){return(m,e)=>(l(),o(t(s),null,{default:a(()=>[r(t(u),null,{default:a(()=>e[0]||(e[0]=[p("p",null,"  This page will be implemented in the future, please come back later",-1)])),_:1})]),_:1}))}});export{f as default};
