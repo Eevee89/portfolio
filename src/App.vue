@@ -18,25 +18,12 @@
             <ion-note></ion-note>
 
             <ion-menu-toggle :auto-hide="false">
-              <ion-item-group>
-                <ion-item>
-                  <ion-icon aria-hidden="true" slot="start" :icon="folderOpenOutline"></ion-icon>
-                  <ion-label>Mon travail</ion-label>
-                </ion-item>
-
-                <ion-item @click="selectedIndex = 2" router-direction="forward" router-link="/hangedpokemon" lines="none" :detail="false" class="hydrated ion-padding-start" :class="{ selected: selectedIndex === 2 }">
-                  <ion-icon aria-hidden="true" slot="start" :icon="logoFirefox"></ion-icon>
-                  <ion-label>Pendu Pokémon</ion-label>
-                </ion-item>
-                <ion-item @click="selectedIndex = 3" router-direction="forward" router-link="/blindtest" lines="none" :detail="false" class="hydrated ion-padding-start" :class="{ selected: selectedIndex === 3 }">
-                  <ion-icon aria-hidden="true" slot="start" :icon="logoFirefox"></ion-icon>
-                  <ion-label>Blind Test</ion-label>
-                </ion-item>
-                <ion-item @click="selectedIndex = 4" router-direction="forward" router-link="/cardcounter" lines="none" :detail="false" class="hydrated ion-padding-start" :class="{ selected: selectedIndex === 4 }">
-                  <ion-icon aria-hidden="true" slot="start" :icon="logoFirefox"></ion-icon>
-                  <ion-label>Card Counter</ion-label>
-                </ion-item>
-              </ion-item-group>
+              <menu-component v-for="(menu, index) in menus" :index="index+1" 
+                :menu="{ 'icon': menu['icon'], 'label': menu['label'], 'link': menu['link'] }"
+                :submenus="menu['submenus']"
+                :selected="selectedMenu == index+1"
+                @menu-click="(i) => selectedMenu = i"
+              ></menu-component>
             </ion-menu-toggle>
           </ion-list>
         </ion-content>
@@ -64,8 +51,6 @@ import {
   IonApp,
   IonContent,
   IonIcon,
-  IonItem,
-  IonLabel,
   IonList,
   IonListHeader,
   IonMenu,
@@ -73,7 +58,6 @@ import {
   IonNote,
   IonRouterOutlet,
   IonSplitPane,
-  IonItemGroup,
   IonAvatar,
   IonCol,
   IonRow,
@@ -81,72 +65,65 @@ import {
 } from '@ionic/vue';
 import { ref } from 'vue';
 import {
-  archiveOutline,
-  archiveSharp,
-  heartOutline,
-  heartSharp,
-  mailOutline,
-  mailSharp,
-  paperPlaneOutline,
-  paperPlaneSharp,
-  trashOutline,
-  trashSharp,
-  warningOutline,
-  warningSharp,
-  personCircleOutline,
   folderOpenOutline,
-  podiumOutline,
-  logoFirefox,
-  logoAndroid,
   logoLinkedin,
   logoGithub,
-  logoDiscord
+  logoDiscord,
+  logoFirefox,
+  newspaperOutline,
+  schoolOutline,
+  briefcase
 } from 'ionicons/icons';
 
-const selectedIndex = ref(0);
-const appPages = [
-  {
-    title: 'Inbox',
-    url: '/folder/Inbox',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp,
-  },
-  {
-    title: 'Outbox',
-    url: '/folder/Outbox',
-    iosIcon: paperPlaneOutline,
-    mdIcon: paperPlaneSharp,
-  },
-  {
-    title: 'Favorites',
-    url: '/folder/Favorites',
-    iosIcon: heartOutline,
-    mdIcon: heartSharp,
-  },
-  {
-    title: 'Archived',
-    url: '/folder/Archived',
-    iosIcon: archiveOutline,
-    mdIcon: archiveSharp,
-  },
-  {
-    title: 'Trash',
-    url: '/folder/Trash',
-    iosIcon: trashOutline,
-    mdIcon: trashSharp,
-  },
-  {
-    title: 'Spam',
-    url: '/folder/Spam',
-    iosIcon: warningOutline,
-    mdIcon: warningSharp,
-  },
-];
+import MenuComponent from './components/MenuComponent.vue';
 
-const path = window.location.pathname.split('folder/')[1];
-if (path !== undefined) {
-  selectedIndex.value = appPages.findIndex((page) => page.title.toLowerCase() === path.toLowerCase());
-}
+const menus = ref([
+  {
+    "link": "/",
+    "icon" : newspaperOutline,
+    "label": "Mon parcours ...",
+    "submenus": [
+      {
+        "index": 11,
+        "label": "... scolaire",
+        "link": "/",
+        "icon": schoolOutline
+      },
+      {
+        "index": 12,
+        "label": "... professionnel",
+        "link": "/",
+        "icon": briefcase
+      },
+    ]
+  }, {
+    "link": "/",
+    "icon" : folderOpenOutline,
+    "label": "Mon travail",
+    "submenus": [
+      {
+        "index": 21,
+        "label": "Pendu Pokemon",
+        "link": "/hangedpokemon",
+        "icon": logoFirefox
+      },
+      {
+        "index": 22,
+        "label": "Blind Test",
+        "link": "/blindtest",
+        "icon": logoFirefox
+      },
+      {
+        "index": 23,
+        "label": "Card counter",
+        "link": "/cardcounter",
+        "icon": logoFirefox
+      }
+    ]
+  }
+]);
+
+const selectedMenu = ref(0);
 </script>
 
 <style scoped>
@@ -264,13 +241,5 @@ ion-note {
   font-size: 16px;
 
   color: var(--ion-color-medium-shade);
-}
-
-ion-item.selected {
-  --color: var(--ion-color-primary);
-}
-
-ion-item-divider {
-  border-radius: 10px;
 }
 </style>
