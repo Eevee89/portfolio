@@ -1,9 +1,9 @@
 <template>
     <ion-page>
         <ion-content>
-            <ion-card>
+            <ion-card color="secondary">
                 <ion-card-header>
-                    <ion-card-title>Diplôme d'ingénieur</ion-card-title>
+                    <ion-card-title><strong>Diplôme d'ingénieur</strong></ion-card-title>
                     <ion-card-subtitle>2022 - 2025</ion-card-subtitle>
                 </ion-card-header>
                 <ion-card-content>
@@ -14,9 +14,9 @@
                     Formation d'ingénieur en Informatique, Automatique, Robotique et Réseaux.<br>
                     Spécialisation en Systèmes d'Informations et Réseaux.
 
-                    <ion-card>
+                    <ion-card color="secondary">
                         <ion-card-header>
-                            <ion-card-title>Semestre Erasmus</ion-card-title>
+                            <ion-card-title><strong>Semestre Erasmus</strong></ion-card-title>
                             <ion-card-subtitle>Aout 2023 - Janvier 2024</ion-card-subtitle>
                         </ion-card-header>
                         <ion-card-content>
@@ -28,9 +28,9 @@
                     </ion-card>
                 </ion-card-content>
             </ion-card>
-            <ion-card>
+            <ion-card color="secondary">
                 <ion-card-header>
-                    <ion-card-title>CPGE MPSI/MP</ion-card-title>
+                    <ion-card-title><strong>CPGE MPSI/MP</strong></ion-card-title>
                     <ion-card-subtitle>2020 - 2022</ion-card-subtitle>
                 </ion-card-header>
                 <ion-card-content>
@@ -43,9 +43,9 @@
                     Bases en sciences de l'ingénieur (physique appliquée).
                 </ion-card-content>
             </ion-card>
-            <ion-card>
+            <ion-card color="secondary">
                 <ion-card-header>
-                    <ion-card-title>Baccalauréat</ion-card-title>
+                    <ion-card-title><strong>Baccalauréat</strong></ion-card-title>
                     <ion-card-subtitle>2017 - 2020</ion-card-subtitle>
                 </ion-card-header>
                 <ion-card-content>
