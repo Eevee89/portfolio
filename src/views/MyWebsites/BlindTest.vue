@@ -1,5 +1,6 @@
 <template>
     <ion-page>
+        <OpenMenuButton v-if="isMobile" title="Blind Test"></OpenMenuButton>
         <ion-content>
             <ion-row class="ion-justify-content-center ion-margin-top">
                 <img alt="Blind Test" src="@/resources/blindtest.png" />
@@ -29,6 +30,9 @@ import {
 import {
     exitOutline
 } from 'ionicons/icons';
+
+import OpenMenuButton from '@/components/OpenMenuButton.vue';
+const isMobile: boolean = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 </script>
 
 <style scoped>

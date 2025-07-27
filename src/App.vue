@@ -1,129 +1,27 @@
 <template>
   <ion-app>
-    <ion-split-pane content-id="main-content">
-      <ion-menu content-id="main-content" type="overlay">
-        <ion-content>
-          <ion-list id="inbox-list">
-            <ion-list-header>
-              <ion-row class="ion-align-items-center">
-                <ion-avatar>
-                  <img alt="My face" src="@/resources/myface.jpg" />
-                </ion-avatar>
-                <ion-col class="ion-no-padding ion-padding-start">
-                  <h3>Joris Martin</h3>
-                  <h4 class="ion-no-padding">Contact : <a href="mailto:admin@jorismartin.fr" target="_blank">admin@jorismartin.fr</a></h4>
-                </ion-col>
-              </ion-row>
-            </ion-list-header>
-            <ion-note></ion-note>
-
-            <ion-menu-toggle :auto-hide="false">
-              <menu-component v-for="(menu, index) in menus" :index="index+1" 
-                :menu="{ 'icon': menu['icon'], 'label': menu['label'], 'link': menu['link'] }"
-                :submenus="menu['submenus']"
-                :selected="selectedMenu == index+1"
-                @menu-click="(i) => selectedMenu = i"
-              ></menu-component>
-            </ion-menu-toggle>
-          </ion-list>
-        </ion-content>
-        <ion-footer>
-          <ion-row class="ion-padding ion-justify-content-around">
-            <a href="https://discord.gg/h5HEjnyxjN" target="_blank">
-              <ion-icon :icon="logoDiscord" size="large" aria-hidden="true"></ion-icon>
-            </a>
-            <a href="https://www.linkedin.com/in/joris-martin-1b3748268/" target="_blank">
-              <ion-icon :icon="logoLinkedin" size="large" color="primary"></ion-icon>
-            </a>
-            <a href="https://github.com/Eevee89" target="_blank">
-              <ion-icon :icon="logoGithub" size="large" color="primary"></ion-icon>
-            </a>
-          </ion-row>
-        </ion-footer>
-      </ion-menu>
+    <ion-split-pane content-id="main-content" v-if="!isMobile">
+      <Menu></Menu>
       <ion-router-outlet id="main-content"></ion-router-outlet>
     </ion-split-pane>
+    <div v-if="isMobile">
+      <Menu></Menu>
+      <ion-router-outlet id="main-content"></ion-router-outlet>
+    </div>
   </ion-app>
 </template>
 
 <script setup lang="ts">
 import {
   IonApp,
-  IonContent,
-  IonIcon,
-  IonList,
-  IonListHeader,
-  IonMenu,
-  IonMenuToggle,
-  IonNote,
   IonRouterOutlet,
   IonSplitPane,
-  IonAvatar,
-  IonCol,
-  IonRow,
-  IonFooter
 } from '@ionic/vue';
-import { ref } from 'vue';
-import {
-  folderOpenOutline,
-  logoLinkedin,
-  logoGithub,
-  logoDiscord,
-  logoFirefox,
-  newspaperOutline,
-  schoolOutline,
-  briefcase
-} from 'ionicons/icons';
 
-import MenuComponent from './components/MenuComponent.vue';
+import Menu from './views/Menu.vue';
 
-const menus = ref([
-  {
-    "link": "/career",
-    "icon" : newspaperOutline,
-    "label": "Mon parcours ...",
-    "submenus": [
-      {
-        "index": 11,
-        "label": "... scolaire",
-        "link": "/school",
-        "icon": schoolOutline
-      },
-      {
-        "index": 12,
-        "label": "... professionnel",
-        "link": "",
-        "icon": briefcase
-      },
-    ]
-  }, {
-    "link": "/project",
-    "icon" : folderOpenOutline,
-    "label": "Mon travail",
-    "submenus": [
-      {
-        "index": 21,
-        "label": "Pendu Pokemon",
-        "link": "/hangedpokemon",
-        "icon": logoFirefox
-      },
-      {
-        "index": 22,
-        "label": "Blind Test",
-        "link": "/blindtest",
-        "icon": logoFirefox
-      },
-      {
-        "index": 23,
-        "label": "Card counter",
-        "link": "/cardcounter",
-        "icon": logoFirefox
-      }
-    ]
-  }
-]);
+const isMobile: boolean = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-const selectedMenu = ref(0);
 </script>
 
 <style scoped>

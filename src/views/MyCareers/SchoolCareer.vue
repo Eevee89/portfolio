@@ -1,5 +1,6 @@
 <template>
     <ion-page>
+        <OpenMenuButton v-if="isMobile" title="Ma scolarité"></OpenMenuButton>
         <ion-content>
             <ion-card color="secondary">
                 <ion-card-header>
@@ -78,4 +79,7 @@ import {
 import {
     locateOutline,
 } from 'ionicons/icons';
+
+import OpenMenuButton from '@/components/OpenMenuButton.vue';
+const isMobile: boolean = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 </script>

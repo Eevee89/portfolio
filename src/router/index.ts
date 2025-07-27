@@ -31,6 +31,10 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/MyWebsites/CardCounter.vue')
   },
   {
+    path: '/project/saytheline',
+    component: () => import ('../views/MyApps/SayTheLine.vue')
+  },
+  {
     path: '/career/school',
     component: () => import ('../views/MyCareers/SchoolCareer.vue')
   }

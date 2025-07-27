@@ -1,5 +1,6 @@
 <template>
     <ion-page>
+        <OpenMenuButton v-if="isMobile" title="Pendu Pokémon"></OpenMenuButton>
         <ion-content>
             <ion-row class="ion-align-items-center ion-justify-content-between ion-margin-top ion-padding-start ion-padding-end language-row">
                 <ion-text><h2 class="ion-no-padding ion-no-margin">Langage</h2></ion-text>
@@ -34,6 +35,9 @@ import {
 import {
     exitOutline
 } from 'ionicons/icons';
+
+import OpenMenuButton from '@/components/OpenMenuButton.vue';
+const isMobile: boolean = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 </script>
 
 <style scoped>

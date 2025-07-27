@@ -4,16 +4,18 @@
         <ion-label>{{ props.menu!['label'] }}</ion-label>
         <ion-icon v-if="hasSubMenu" ref="iconRef" aria-hidden="true" slot="end" :icon="chevronForwardOutline"></ion-icon>
     </ion-item>
-    <ion-item-group v-if="selectedMenu">
-        <ion-item v-for="submenu in props.submenus!"
-            @click="submenuClick(submenu['index'], submenu['link'])" 
-        router-direction="forward" :router-link="props.menu!['link']+submenu['link']" 
-            lines="none" :detail="false" class="hydrated ion-margin-start" 
-            :class="{ selected: selectedIndex == submenu['index'] }">
-            <ion-icon aria-hidden="true" slot="start" :icon="submenu['icon']"></ion-icon>
-            <ion-label>{{ submenu['label'] }}</ion-label>
-        </ion-item>
-    </ion-item-group>
+    <ion-menu-toggle :auto-hide="false" v-if="selectedMenu">
+        <ion-item-group>
+            <ion-item v-for="submenu in props.submenus!"
+                :key="submenu.index" @click="submenuClick(submenu['index'], submenu['link'])" 
+                router-direction="forward" :router-link="props.menu!['link']+submenu['link']" 
+                lines="none" :detail="false" class="hydrated ion-margin-start" 
+                :class="{ selected: selectedIndex == submenu['index'] }">
+                <ion-icon aria-hidden="true" slot="start" :icon="submenu['icon']"></ion-icon>
+                <ion-label>{{ submenu['label'] }}</ion-label>
+            </ion-item>
+        </ion-item-group>
+    </ion-menu-toggle>
 </template>
 
 <script setup lang="ts">
@@ -22,6 +24,7 @@ import {
     IonItem,
     IonLabel,
     IonItemGroup,
+    IonMenuToggle,
 } from '@ionic/vue';
 import {
     Animation,
@@ -41,7 +44,7 @@ const props = defineProps({
     submenus: Array<{ index: number, label: string, link: string, icon: string }>,
     index: Number,
     selected: Boolean
-})
+});
 
 const selectedIndex = ref(0);
 const menuLink = ref("/");
