@@ -10,7 +10,7 @@
                 <img class="thumbnail" alt="Pendu Pokemon" src="@/resources/pokemonhanged.png" />
             </ion-row>
             <ion-row class="ion-justify-content-center">
-                <a href="https://pokemonhanged.jorismartin.fr" target="_blank">
+                <a href="https://hanging-pokemon.jorismartin.fr/" target="_blank">
                     <ion-button>
                         <ion-icon :icon="exitOutline" slot="start"></ion-icon>
                         <ion-label slot="end">Y aller</ion-label>
