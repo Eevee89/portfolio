@@ -4,7 +4,7 @@
         
         <div class="project-header">
             <h1>Blind Test</h1>
-            <ion-badge color="warning">En cours</ion-badge>
+            <ion-badge color="success">Terminé</ion-badge>
             <p class="ion-text-uppercase">Projet perso - 2025/2026</p>
         </div>
 
@@ -79,7 +79,7 @@
         </ion-list>
 
         <ion-row class="ion-margin-top ion-justify-content-center">
-            <ion-button fill="outline" href="https://hanging-pokemon.jorismartin.fr" target="_blank" disabled="true">
+            <ion-button fill="outline" href="https://blind-test.jorismartin.fr" target="_blank">
                 <ion-icon slot="start" :icon="globeOutline"></ion-icon>
                 Tester
             </ion-button>
