@@ -74,6 +74,11 @@
                 <ion-icon slot="start" :icon="globeOutline"></ion-icon>
                 Tester
             </ion-button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <ion-button fill="outline" href="https://hanging-pokemon.jorismartin.fr/discord/bot" target="_blank">
+                <ion-icon slot="start" :icon="logoDiscord"></ion-icon>
+                Bot Discord
+            </ion-button>
         </ion-row>
 
         </ion-content>
@@ -81,7 +86,7 @@
 </template>
 
 <script setup>
-import { globeOutline } from 'ionicons/icons';
+import { globeOutline, logoDiscord } from 'ionicons/icons';
 import { 
     IonPage,
     IonContent,
