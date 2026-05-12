@@ -75,7 +75,7 @@
                 Tester
             </ion-button>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <ion-button fill="outline" href="https://hanging-pokemon.jorismartin.fr/discord/bot" target="_blank">
+            <ion-button fill="outline" href="https://silbot.jorismartin.fr" target="_blank">
                 <ion-icon slot="start" :icon="logoDiscord"></ion-icon>
                 Bot Discord
             </ion-button>
